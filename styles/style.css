@@ -38,7 +38,7 @@ ol {
 }
 
 fieldset {
-  cursor: pointer;
+  border: none;
 }
 
 .visually-hidden {
@@ -51,21 +51,34 @@ fieldset {
   white-space: nowrap;
 }
 
+input[type="text"],
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
 .content {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   gap: 30px;
   max-width: 1140px;
-  min-height: 534px;
+  max-height: 534px;
   margin: 133px 30px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .result__video-container {
   position: relative;
-  min-width: 711px;
+  max-width: 711px;
   max-height: 386px;
-  margin-bottom: 16px;
 }
 
 video {
@@ -77,10 +90,8 @@ video {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-}
-
-fieldset {
-  border: none;
+  min-width: 711px;
+  max-height: 54px;
 }
 
 .search-form__fieldset-title {
@@ -89,20 +100,12 @@ fieldset {
   font-size: 18px;
 }
 
-input[type="text"],
-input[type="checkbox"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-}
-
 .search-form__label {
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 5px;
   width: fit-content;
+  cursor: pointer;
 }
 
 .search-form__label:has(:focus-visible) {
@@ -116,44 +119,71 @@ input[type="text"] {
   border: inherit;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  color: rgba(255, 255, 255, 0.7);
+  outline: none;
+  color: #fff;
   font-family: "Fira Sans Condensed";
   font-size: 18px;
   background-color: inherit;
 }
 
 input[type="text"]:active {
-  border: 1px solid #fff;
+  border: none;
 }
 
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
+.search-form__label-text:hover {
+  text-decoration: underline;
+}
+
+input[type="text"]:focus {
+  outline: none;
 }
 
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
-  min-width: 212px;
   padding-bottom: 5px;
 }
 
-input[type="checkbox"] + span {
+.search-form__pseudo-checkbox {
+  display: inline-block;
   width: 19px;
   height: 19px;
-  border: 1px solid #fff;
+  margin-top: 1px;
+  margin-left: 1px;
+  outline: 1px solid #fff;
 }
 
-input[type="checkbox"]:checked + span {
+.search-form__pseudo-checkbox::before {
+  content: "";
+  display: inline-block;
+  margin-left: 2px;
+}
+
+input[type="checkbox"]:active + .search-form__pseudo-checkbox::before {
   width: 15px;
   height: 15px;
-  background: #fff;
+  background-color: #fff;
+}
+
+input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.search-form__pseudo-checkbox:focus {
+  outline: none;
+}
+
+.search-form__pseudo-checkbox:focus-visible {
+  outline: 1px solid #fff;
 }
 
 .content__details {
   display: flex;
   flex-direction: column;
-  min-height: 534px;
+  max-width: 399px;
+  height: 534px;
 }
 
 .title {
@@ -171,13 +201,19 @@ input[type="checkbox"]:checked + span {
 
 .content__list {
   position: relative;
-  min-width: 399px;
-  max-height: 298px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 394px;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
 
-.content__list-item:not(:last-of-type) {
-  padding-bottom: 30px;
+.content__list-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 394px;
+  max-height: 103px;
 }
 
 .content__list-item:hover {
@@ -196,27 +232,26 @@ input[type="checkbox"]:checked + span {
 
 .content__list-item:focus-visible {
   outline: 1px solid #fff;
-  outline-offset: 1px;
 }
 
 .content__card-link {
+  display: block;
   margin: 2px;
   color: #fff;
   text-decoration: none;
-  background-color: #545050;
 }
 
 .content__card-link_current {
-  display: block;
+  background: #545050;
 }
 
 .content__video-card {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
 }
 
 .content__video-card-thumbnail {
+  flex-shrink: 0;
   max-width: 194px;
   max-height: 103px;
 }
@@ -224,7 +259,7 @@ input[type="checkbox"]:checked + span {
 .content__video-card-description-container {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .content__video-card-title {
@@ -244,6 +279,7 @@ button {
   font-family: inherit;
   font-weight: 700;
   font-size: 18px;
+  text-align: center;
   background-color: inherit;
 }
 

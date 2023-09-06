@@ -66,16 +66,12 @@ input[type="checkbox"] {
 }
 
 .content {
-  position: absolute;
-  top: calc(50% - 267px);
-  right: 0;
-  left: 0;
   display: flex;
   align-items: flex-end;
   gap: 30px;
-  width: 1140px;
-  height: 534px;
-  margin: 0 auto;
+  max-width: 1140px;
+  max-height: 534px;
+  margin: auto;
 }
 
 .result {
@@ -84,27 +80,27 @@ input[type="checkbox"] {
   justify-content: flex-end;
   align-items: flex-start;
   gap: 16px;
-  width: 711px;
-  height: 456px;
+  max-width: 711px;
+  max-height: 456px;
 }
 
 .result__video-container {
   position: relative;
-  width: 711px;
-  height: 386px;
+  max-width: 711px;
+  max-height: 386px;
 }
 
 .result__video {
-  width: 711px;
-  height: 386px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .search-form {
   display: flex;
-  justify-content: flex-start;
-  gap: 40px;
-  width: 711px;
-  height: 54px;
+gap: 40px;
+  max-width: 711px;
+  max-height: 54px;
 }
 
 .search-form__fieldset {
@@ -115,7 +111,6 @@ input[type="checkbox"] {
 }
 
 .search-form__fieldset-title {
-  width: fit-content;
   font-size: 18px;
   font-weight: 400;
 }
@@ -123,6 +118,7 @@ input[type="checkbox"] {
 .search-form__label {
   display: flex;
   gap: 5px;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -132,8 +128,8 @@ input[type="checkbox"] {
 }
 
 input[type="text"] {
+  width: fit-content;
   width: 225px;
-  height: 27px;
   border: inherit;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
@@ -160,7 +156,7 @@ input[type="text"]:focus {
 .search-form__checkbox-list {
   display: flex;
   justify-content: space-between;
-  width: 212px;
+  min-width: 212px;
 }
 
 .search-form__pseudo-checkbox {
@@ -200,13 +196,13 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
   display: flex;
   flex-direction: column;
   gap: 26px;
-  width: 399px;
-  height: 534px;
+  max-width: 399px;
+  max-height: 534px;
 }
 
 .title {
-  width: 260px;
-  height: 210px;
+  max-width: 260px;
+  max-height: 210px;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   font-size: 75px;
@@ -223,8 +219,8 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 399px;
-  height: 298px;
+  min-width: 399px;
+  max-height: 298px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -232,8 +228,8 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
 .content__list-item {
   display: flex;
   flex-direction: column;
-  width: 394px;
-  height: 103px;
+  max-width: 394px;
+  max-height: 103px;
 }
 
 .content__list-item:hover {
